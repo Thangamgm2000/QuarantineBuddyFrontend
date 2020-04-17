@@ -22,9 +22,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class LeaderboardActivity extends AppCompatActivity {
 
-    private String URLstring = "http://6addf131.ngrok.io/leaderboard";
+    private String URLstring = "http://cc9dc015.ngrok.io/leaderboard";
     private static ProgressDialog mProgressDialog;
     private ListView listView;
     ArrayList<DataModel> dataModelArrayList;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_leaderboard);
 
         listView = findViewById(R.id.lv);
 
