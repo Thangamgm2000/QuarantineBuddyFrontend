@@ -1,2 +1,2 @@
-rootProject.name='Leaderboardapp'
+rootProject.name='QuarantineBuddy'
 include ':app'

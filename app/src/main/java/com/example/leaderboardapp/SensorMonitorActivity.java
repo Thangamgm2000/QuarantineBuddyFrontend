@@ -1,11 +1,18 @@
 package com.example.leaderboardapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -26,18 +33,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SensorMonitorActivity extends AppCompatActivity {
-    ArrayList<String> sensorvalues;
+public class SensorMonitorActivity extends AppCompatActivity implements LocationListener {
+    ArrayList<String> sensorvalues,gps_values;
     double magnitude;
     Handler handler;
     Runnable runnable;
+    protected LocationManager locationManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sensorvalues = new ArrayList<String>();
+        gps_values = new ArrayList<String>();
         setContentView(R.layout.activity_sensor_monitor);
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
         magnitude=0;
         SensorEventListener stepDetector = new SensorEventListener() {
             @Override
@@ -68,6 +83,7 @@ public class SensorMonitorActivity extends AppCompatActivity {
                 //do something
                 sendSensorValues();
                 sensorvalues.clear();
+                gps_values.clear();
                 Toast.makeText(getApplicationContext(),"Sensor values posted successfully",Toast.LENGTH_SHORT).show();
                 handler.postDelayed(this, delay);
 
@@ -83,8 +99,9 @@ public class SensorMonitorActivity extends AppCompatActivity {
 
     public void sendSensorValues()
     {
-        final JSONArray data= new JSONArray(sensorvalues);
-        String url = "http://cc9dc015.ngrok.io/getSensorValues";
+        final JSONArray sensordata= new JSONArray(sensorvalues);
+        final JSONArray gpsdata= new JSONArray(gps_values);
+        String url = "http://6316c589.ngrok.io/getSensorValues";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
                 {
@@ -108,11 +125,32 @@ public class SensorMonitorActivity extends AppCompatActivity {
             {
                 Map<String, String>  params = new HashMap<String, String>();
                 params.put("userid", "1");
-                params.put("sensorvalues",data.toString());
+                params.put("sensorvalues",sensordata.toString());
+                params.put("gpsvalues",gpsdata.toString());
                 return params;
             }
         };
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(postRequest);
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        gps_values.add(location.getLatitude()+","+location.getLongitude());
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
     }
 }

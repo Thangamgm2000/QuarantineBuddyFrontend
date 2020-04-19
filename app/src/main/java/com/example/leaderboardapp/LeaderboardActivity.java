@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class LeaderboardActivity extends AppCompatActivity {
 
-    private String URLstring = "http://cc9dc015.ngrok.io/leaderboard";
+    private String URLstring = "http://6316c589.ngrok.io/leaderboard";
     private static ProgressDialog mProgressDialog;
     private ListView listView;
     ArrayList<DataModel> dataModelArrayList;
