@@ -16,6 +16,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="openProfile"
+        android:text="User Profile"
+        android:layout_marginBottom="20dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="openLeaderboard"
         android:text="Open leaderboard"
         android:layout_marginBottom="20dp"/>
@@ -24,4 +30,9 @@
         android:layout_height="wrap_content"
         android:text="Sensor monitor"
         android:onClick="openSensorMonitor"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Notifications"
+        android:onClick="sendnotifications"/>
 </LinearLayout>

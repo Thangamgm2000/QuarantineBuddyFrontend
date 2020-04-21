@@ -53,4 +53,13 @@ public class Navigation extends AppCompatActivity {
        check_for_permissions();
     }
 
+    public void openProfile(View view) {
+        Intent i = new Intent(this,UserProfile.class);
+        startActivity(i);
+    }
+
+    public void sendnotifications(View view) {
+        Intent i = new Intent(this,Notification_Activity.class);
+        startActivity(i);
+    }
 }
