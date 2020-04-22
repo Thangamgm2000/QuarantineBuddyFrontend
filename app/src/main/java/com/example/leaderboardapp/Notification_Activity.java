@@ -5,23 +5,28 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 
 import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 
 public class Notification_Activity extends AppCompatActivity {
     String CHANNEL_ID="HealthQuestioning";
     int Health_Notification_id=0;
+    PendingIntent ScheduledPendingIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_);
-        createNotificationChannel();
+        schedule_notification();
+        /*createNotificationChannel();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.notification_icon)
@@ -40,9 +45,19 @@ public class Notification_Activity extends AppCompatActivity {
         builder.setColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
 // notificationId is a unique int for each notification that you must define
         notificationManager.notify(Health_Notification_id, builder.build());
-
+*/
 
     }
+
+    private void schedule_notification() {
+        Intent notificationIntent = new Intent( this, NotificationSender. class ) ;
+        PendingIntent pendingIntent = PendingIntent. getBroadcast ( this, 0 , notificationIntent , PendingIntent. FLAG_UPDATE_CURRENT ) ;
+        long futureInMillis = SystemClock. elapsedRealtime () + 10000 ;
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context. ALARM_SERVICE ) ;
+        assert alarmManager != null;
+        alarmManager.set(AlarmManager. ELAPSED_REALTIME_WAKEUP , futureInMillis , pendingIntent); ;
+    }
+
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library

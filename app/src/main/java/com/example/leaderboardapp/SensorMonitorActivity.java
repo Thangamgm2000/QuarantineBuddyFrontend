@@ -101,7 +101,7 @@ public class SensorMonitorActivity extends AppCompatActivity implements Location
     {
         final JSONArray sensordata= new JSONArray(sensorvalues);
         final JSONArray gpsdata= new JSONArray(gps_values);
-        String url = "http://6316c589.ngrok.io/getSensorValues";
+        String url = "http://70c88512.ngrok.io/getSensorValues";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
                 {

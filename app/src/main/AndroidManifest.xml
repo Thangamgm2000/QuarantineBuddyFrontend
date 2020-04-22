@@ -13,9 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <receiver
-            android:name=".NotificationReceiver"
+            android:name=".NotificationSender"
             android:enabled="true"
             android:exported="true"></receiver>
+        <receiver
+            android:name=".NotificationReceiver"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity android:name=".Notification_Activity" />
         <activity android:name=".UserProfile" />
