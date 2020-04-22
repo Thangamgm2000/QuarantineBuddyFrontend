@@ -51,11 +51,12 @@ public class Notification_Activity extends AppCompatActivity {
 
     private void schedule_notification() {
         Intent notificationIntent = new Intent( this, NotificationSender. class ) ;
+        notificationIntent.putExtra("Alarmtask",true);
         PendingIntent pendingIntent = PendingIntent. getBroadcast ( this, 0 , notificationIntent , PendingIntent. FLAG_UPDATE_CURRENT ) ;
-        long futureInMillis = SystemClock. elapsedRealtime () + 10000 ;
+        long futureInMillis = SystemClock. elapsedRealtime () + 1000;
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context. ALARM_SERVICE ) ;
         assert alarmManager != null;
-        alarmManager.set(AlarmManager. ELAPSED_REALTIME_WAKEUP , futureInMillis , pendingIntent); ;
+        alarmManager.setInexactRepeating(AlarmManager. ELAPSED_REALTIME_WAKEUP , futureInMillis, AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent); ;
     }
 
     private void createNotificationChannel() {

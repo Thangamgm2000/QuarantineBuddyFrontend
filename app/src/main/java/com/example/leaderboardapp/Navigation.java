@@ -5,10 +5,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 public class Navigation extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class Navigation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         check_for_permissions();
         setContentView(R.layout.activity_navigation);
+        checkAlarmTask();
     }
 
 
@@ -61,5 +65,20 @@ public class Navigation extends AppCompatActivity {
     public void sendnotifications(View view) {
         Intent i = new Intent(this,Notification_Activity.class);
         startActivity(i);
+    }
+    public void checkAlarmTask()
+    {
+        boolean alarmUp = (PendingIntent.getBroadcast(getApplicationContext(), 0,
+                new Intent(getApplicationContext(),NotificationSender.class).putExtra("Alarmtask",true),
+                PendingIntent.FLAG_NO_CREATE) != null);
+
+        if (alarmUp)
+        {
+            Toast.makeText(getApplicationContext(),"Task is already scheduled.",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"No scheduled tasks",Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -43,11 +43,11 @@ public class NotificationReceiver extends BroadcastReceiver {
             }
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
             notificationManager.cancel(bundle.getInt("NotificationId"));
-            schedule_notification();
         }
     }
     private void schedule_notification() {
         Intent notificationIntent = new Intent( hostContext, NotificationSender. class ) ;
+        notificationIntent.putExtra("Alarmtask",true);
         PendingIntent pendingIntent = PendingIntent. getBroadcast ( hostContext, 0 , notificationIntent , PendingIntent. FLAG_UPDATE_CURRENT ) ;
         long futureInMillis = SystemClock. elapsedRealtime () + AlarmManager.INTERVAL_HOUR*2 ;
         AlarmManager alarmManager = (AlarmManager) hostContext.getSystemService(Context. ALARM_SERVICE ) ;
