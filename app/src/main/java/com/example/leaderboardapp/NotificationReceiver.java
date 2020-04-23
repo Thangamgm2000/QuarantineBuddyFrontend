@@ -56,7 +56,7 @@ public class NotificationReceiver extends BroadcastReceiver {
     }
     public void postUserResponse(final String userResponse)
     {
-        String url = "http://70c88512.ngrok.io/getUserResponse";
+        String url = "http://9129e336.ngrok.io/getUserResponse";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
                 {

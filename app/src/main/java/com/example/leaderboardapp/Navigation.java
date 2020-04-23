@@ -22,7 +22,6 @@ public class Navigation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         check_for_permissions();
         setContentView(R.layout.activity_navigation);
-        checkAlarmTask();
     }
 
 

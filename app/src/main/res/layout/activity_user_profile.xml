@@ -8,8 +8,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/snapicon"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
@@ -22,39 +22,69 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.3" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.15" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:id="@+id/username"
         android:textSize="@dimen/profile_details"
-        android:textColor="@color/pureblack"
+        android:textColor="@color/detailsTextColor"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/profile_image"
+        app:layout_constraintEnd_toStartOf="@id/right_guideline"
         app:layout_constraintStart_toStartOf="@id/left_guideline"/>
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:textSize="@dimen/profile_details"
         android:id="@+id/reward_points"
-        android:textColor="@color/pureblack"
+        android:textColor="@color/detailsTextColor"
         app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"/>
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintEnd_toStartOf="@id/right_guideline"/>
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:textSize="@dimen/profile_details"
-        android:textColor="@color/pureblack"
-        android:id="@+id/current_activity"
+        android:textColor="@color/detailsTextColor"
+        android:id="@+id/country"
         app:layout_constraintTop_toBottomOf="@+id/reward_points"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"/>
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"/>
+    <ListView
+        android:id="@+id/navigationList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:divider="@color/detailsTextColor"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/country"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"
+        android:dividerHeight="0dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
 <resources>
     <dimen
         name="profile_details">
-        30sp
+        20dp
     </dimen>
 
 </resources>
