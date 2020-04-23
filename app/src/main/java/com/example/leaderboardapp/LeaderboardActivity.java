@@ -43,7 +43,7 @@ public class LeaderboardActivity extends AppCompatActivity {
 
     private void retrieveJSON() {
 
-        showSimpleProgressDialog(this, "Loading...","Fetching Json",false);
+        showSimpleProgressDialog(this, "Loading...","Fetching the contents",false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URLstring,
                 new Response.Listener<String>() {

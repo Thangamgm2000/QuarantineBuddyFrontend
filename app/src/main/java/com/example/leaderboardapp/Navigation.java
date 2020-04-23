@@ -80,4 +80,9 @@ public class Navigation extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"No scheduled tasks",Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void openLauncher(View view) {
+        Intent i = new Intent(this,LauncherActivity.class);
+        startActivity(i);
+    }
 }
