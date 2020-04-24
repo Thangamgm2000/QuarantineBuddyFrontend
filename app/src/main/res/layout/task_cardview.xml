@@ -2,15 +2,25 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="6dp"
+    app:cardPreventCornerOverlap="true"
+
     app:cardElevation="6dp">
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:orientation="vertical">
+        >
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/taskImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/dalgona_cofee"
+            />
         <TextView
         android:id="@+id/taskName"
         android:layout_width="match_parent"
@@ -19,7 +29,9 @@
         android:textAlignment="center"
         android:text="Dalgona Cofee Challenge"
         android:textColor="@color/detailsTextColor"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toEndOf="@+id/taskImage"   />
         <TextView
         android:id="@+id/taskCategory"
         android:layout_width="match_parent"
@@ -27,7 +39,9 @@
         android:textAlignment="center"
         android:padding="1dp"
         android:text="Category: Lifeskills"
-        android:textColor="@color/detailsTextColor" />
+        android:textColor="@color/detailsTextColor"
+            app:layout_constraintTop_toBottomOf="@id/taskName"
+            app:layout_constraintStart_toEndOf="@+id/taskImage" />
         <TextView
         android:id="@+id/taskIntensity"
         android:layout_width="match_parent"
@@ -35,7 +49,9 @@
         android:textAlignment="center"
         android:padding="1dp"
         android:text="Intensity: High"
-        android:textColor="@color/detailsTextColor" />
-        </LinearLayout>
+        android:textColor="@color/detailsTextColor"
+            app:layout_constraintTop_toBottomOf="@+id/taskCategory"
+            app:layout_constraintStart_toEndOf="@+id/taskImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

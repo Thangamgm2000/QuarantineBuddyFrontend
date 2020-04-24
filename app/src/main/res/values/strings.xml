@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QuarantineBuddy</string>
+    <string name="OpenDrawer">Open navigation menu</string>
+    <string name="Close">Exit navigation menu</string>
 </resources>
