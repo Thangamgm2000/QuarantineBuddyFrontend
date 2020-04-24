@@ -1,21 +1,26 @@
 package com.example.leaderboardapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class RegistrationActivity extends AppCompatActivity {
     FloatingActionButton tickButton;
     String currentFrag="personal";
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         tickButton = findViewById(R.id.floating_action_button);
+        progressBar = findViewById(R.id.determinateBar);
         PersonalDetailsFragment firstFragment = new PersonalDetailsFragment();
 
         // In case this activity was started with special instructions from an
@@ -28,10 +33,13 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void nextFragment(View view) {
         if(currentFrag.equals("personal"))
         {
+            progressBar.setIndeterminate(false);
             currentFrag="health";
+            progressBar.setProgress(43,true);
             HealthDetailsFragment nextFragment = new HealthDetailsFragment();
             nextFragment.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction()
@@ -40,12 +48,14 @@ public class RegistrationActivity extends AppCompatActivity {
         else if(currentFrag.equals("health"))
         {
             currentFrag="other";
+            progressBar.setProgress(72,true);
             OtherDetailsFragment nextFragment = new OtherDetailsFragment();
             nextFragment.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainer, nextFragment).commit();
         }
         else {
+            progressBar.setProgress(100,true);
             registerUser();
         }
 
