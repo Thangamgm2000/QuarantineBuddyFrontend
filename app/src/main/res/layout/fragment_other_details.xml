@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    app:cardCornerRadius="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PersonalDetailsFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/left_guideline1"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/right_guideline1"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.97"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Hey let me know what your interests are!"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/left_guideline1"
+            android:textSize="18dp"
+            android:textColor="@color/detailsTextColor"
+            android:id="@+id/interestText"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hintinterests"
+            android:text="(Split with comma(,)"
+            app:layout_constraintStart_toStartOf="@id/left_guideline1"
+            app:layout_constraintTop_toBottomOf="@id/interestText"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:hint="Interest1,Interest2"
+            app:layout_constraintEnd_toStartOf="@id/right_guideline1"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="@id/left_guideline1"
+            app:layout_constraintTop_toBottomOf="@id/hintinterests"
+            android:id="@+id/userInterests"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/userInterests"
+            android:text="Buddy,How old are you?"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/left_guideline1"
+            android:textSize="18dp"
+            android:textColor="@color/detailsTextColor"
+            android:id="@+id/ageText"/>
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/agegroup"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/left_guideline1"
+            app:layout_constraintTop_toBottomOf="@id/ageText">
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Less than 30"
+                android:id="@+id/oftenChoice"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Between 30 and 55"
+                android:id="@+id/someChoice"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Between 30 and 55"
+                android:id="@+id/rareChoice"
+                android:layout_marginBottom="20dp"
+                />
+
+        </RadioGroup>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

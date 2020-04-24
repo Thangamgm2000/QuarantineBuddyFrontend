@@ -8,6 +8,8 @@
     <item android:id="@+id/testNotify"
         android:title="Test Notification"/>
     <item android:id="@+id/gpsmonitor"
-        android:title="GPS and Sensor monitor"/>
+        android:title="GPS/Sensor monitor"/>
+    <item android:id="@+id/registration"
+        android:title="Register User"/>
 
 </menu>

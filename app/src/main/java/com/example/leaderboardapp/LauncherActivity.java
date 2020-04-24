@@ -77,6 +77,8 @@ public class LauncherActivity extends AppCompatActivity {
                         sendnotifications();break;
                     case R.id.gpsmonitor:
                         openSensorMonitor();break;
+                    case R.id.registration:
+                        registerUser();break;
                     default:
                         return true;
                 }
@@ -133,6 +135,11 @@ public class LauncherActivity extends AppCompatActivity {
 
     public void sendnotifications() {
         Intent i = new Intent(this,Notification_Activity.class);
+        startActivity(i);
+    }
+    public void registerUser()
+    {
+        Intent i = new Intent(this,RegistrationActivity.class);
         startActivity(i);
     }
 }
