@@ -8,4 +8,74 @@
     <color name="darkbackground">#d1759b</color>
     <color name="lightbuddytheme">#70ebff</color>
     <color name="detailsTextColorBlack">#1f262a</color>
+    <color name="gray">#EEEEEE</color>
+    <color name="gray_darken">#DDDDDD</color>
+    <color name="colorGray">#4A4A4A</color>
+    <color name="teal">#808080</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="wh">  #D3D3D3</color>
+
+    <color name="whi">#008080</color>
+
+    <color name="green">#008B8B</color>
+
+    <color name="ligg">#30DDB2</color>
+
+    <color name="address">#2F7092</color>
+
+    <color name="followers">#0D5D98</color>
+
+    <color name="headings">#3797CF</color>
+
+    <color name="solidCircle">#AAFFFFFF</color>
+
+    <color name="circleBorder">#50FFFFFF</color>
+
+    <color name="gradEnd">#67EFC8</color>
+
+    <color name="gradStart">#63C9FF</color>
+
+    <color name="followersBg">#65DCE5</color>
+
+    <color name="followingBg">#49BEFF</color>
+
+    <color name="grey">#E5E5E5</color>
+
+    <color name="glassy">#6BE6D2</color>
+
+    <color name="green_continue">#1fc055</color>
+
+    <color name="chip_color">#d4edfa</color>
+
+    <color name="chip_inner_color">#e0e4e4</color>
+
+    <color name="chip_yellow_color">#fbe191</color>
+
+    <color name="chip_yellow_inner_color">#eed280</color>
+
+    <color name="purple_color">#5515a9</color>
+
+    <color name="purple_color_gradient">#651dc4</color>
+
+    <color name="green_color">#108b4c</color>
+
+    <color name="green_color_gradient">#1caf57</color>
+
+    <color name="blue_color">#5D8BF2</color>
+
+    <color name="blue_color_gradient">#3545AE</color>
+
+    <color name="pink_color">#d04c84</color>
+
+    <color name="pink_color_gradient">#d04882</color>
+
+    <color name="default_color">#363434</color>
+
+    <color name="default_color_gradient">#434141</color>
+
+    <color name="brown_color">#800000</color>
+
+    <color name="brown_color_gradient">#A52A2A</color>
 </resources>

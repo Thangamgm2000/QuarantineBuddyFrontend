@@ -136,7 +136,7 @@ public class LauncherActivity extends AppCompatActivity  {
     }
 
     public void openProfile() {
-        Intent i = new Intent(this,UserProfile.class);
+        Intent i = new Intent(this,profile.class);
         startActivity(i);
     }
 
@@ -167,7 +167,7 @@ public class LauncherActivity extends AppCompatActivity  {
     }
 
     @Override
-    protected void onResume() {
+    protected void onRestart() {
         SharedPreferences sf = getSharedPreferences("currenttask",MODE_PRIVATE);
         String status = sf.getString("taskStatus","NA");
         if (status.equals("completed"))
@@ -178,6 +178,6 @@ public class LauncherActivity extends AppCompatActivity  {
             TaskCardsAdapter recoAdapter = new TaskCardsAdapter(recoTasks);
             recoRecyclerView.setAdapter(recoAdapter);
         }
-        super.onResume();
+        super.onRestart();
     }
 }

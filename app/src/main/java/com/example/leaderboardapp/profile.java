@@ -25,13 +25,13 @@ public class profile extends AppCompatActivity {
         score=findViewById(R.id.scorepoints);
         current=findViewById(R.id.current);
         // Name from database
-        name.setText("name");
+        name.setText("shreevijay");
         // Country from Database
-        country.setText("country");
+        country.setText("India");
         //score from database
-        score.setText("score");
+        score.setText("0");
         //current activity
-        current.setText("Activity");
+        current.setText("Dalgona Coffee");
 
 
     }
@@ -45,6 +45,8 @@ public class profile extends AppCompatActivity {
     }
     public void cact(View view){
         //if any activity to show a new page of current acitivity intent can be used
+        Intent i = new Intent(this,TasksActivity.class);
+        startActivity(i);
     }
     public void comact(View view){
         //Normal intent to completed activities page
