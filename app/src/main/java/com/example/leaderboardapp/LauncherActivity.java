@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.os.SystemClock;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,6 +29,7 @@ public class LauncherActivity extends AppCompatActivity  {
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
+    private RecyclerView recoRecyclerView;
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +47,19 @@ public class LauncherActivity extends AppCompatActivity  {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         dailyRecyclerView.setLayoutManager(mLayoutManager);
         ArrayList<ChallengeTask> dailyTasks = new ArrayList<ChallengeTask>();
-        dailyTasks.add(new ChallengeTask("Dalgona Coffee","Add later",
-                "LifeSkills","Medium"));
-        dailyTasks.add(new ChallengeTask("A short walk","Add later",
-                "Physical ","Light"));
+        dailyTasks.add(new ChallengeTask("Learn 10 new words from the dictionary","Add later",
+                "","",R.drawable.dictionary_task));
+        dailyTasks.add(new ChallengeTask("Call and have a conversation with five friends","Add later",
+                "","",R.drawable.friendsconvo));
         TaskCardsAdapter dailyAdapter = new TaskCardsAdapter(dailyTasks);
         dailyRecyclerView.setAdapter(dailyAdapter);
-        RecyclerView recoRecyclerView = (RecyclerView) findViewById(R.id.recommended);
+        recoRecyclerView = (RecyclerView) findViewById(R.id.recommended);
         dailyRecyclerView.setHasFixedSize(true);
         LinearLayoutManager recoLayoutManager = new LinearLayoutManager(getApplicationContext());
         recoRecyclerView.setLayoutManager(recoLayoutManager);
         ArrayList<ChallengeTask> recoTasks = new ArrayList<ChallengeTask>();
-        recoTasks.add(new ChallengeTask("A short walk","Add later",
-                "Physical ","Light"));
+        recoTasks.add(new ChallengeTask("Dalgona Coffee","Add later",
+                "Skill ","Medium",R.drawable.dalgona_cofee));
         TaskCardsAdapter recoAdapter = new TaskCardsAdapter(recoTasks);
         recoRecyclerView.setAdapter(recoAdapter);
 
@@ -161,5 +164,20 @@ public class LauncherActivity extends AppCompatActivity  {
         }
         else
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onResume() {
+        SharedPreferences sf = getSharedPreferences("currenttask",MODE_PRIVATE);
+        String status = sf.getString("taskStatus","NA");
+        if (status.equals("completed"))
+        {
+            ArrayList<ChallengeTask> recoTasks = new ArrayList<ChallengeTask>();
+            recoTasks.add(new ChallengeTask("Yoga","Add later",
+                    "Healthcare","Medium",R.drawable.yogaicon));
+            TaskCardsAdapter recoAdapter = new TaskCardsAdapter(recoTasks);
+            recoRecyclerView.setAdapter(recoAdapter);
+        }
+        super.onResume();
     }
 }

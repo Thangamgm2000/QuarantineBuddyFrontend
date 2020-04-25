@@ -14,7 +14,7 @@
         android:padding="8dp"
         >
         <ImageView
-            android:layout_width="70dp"
+            android:layout_width="50dp"
             android:layout_height="70dp"
             android:id="@+id/taskImage"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
             />
         <TextView
         android:id="@+id/taskName"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="1dp"
         android:textAlignment="center"
@@ -31,6 +31,7 @@
         android:textColor="@color/detailsTextColor"
         android:textSize="18sp"
          app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toEndOf="@+id/taskImage"   />
         <TextView
         android:id="@+id/taskCategory"
@@ -41,6 +42,7 @@
         android:text="Category: Lifeskills"
         android:textColor="@color/detailsTextColor"
             app:layout_constraintTop_toBottomOf="@id/taskName"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/taskImage" />
         <TextView
         android:id="@+id/taskIntensity"
@@ -50,6 +52,7 @@
         android:padding="1dp"
         android:text="Intensity: High"
         android:textColor="@color/detailsTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/taskCategory"
             app:layout_constraintStart_toEndOf="@+id/taskImage" />
 

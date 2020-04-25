@@ -60,6 +60,12 @@
                 android:text="Not so good:("
                 android:id="@+id/badChoice"
                 />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No, I'm sick"
+                android:id="@+id/sickChoice"
+                />
         </RadioGroup>
         <TextView
             android:layout_width="wrap_content"

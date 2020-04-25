@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightbuddytheme"
     tools:context=".TasksActivity">
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
@@ -67,7 +68,9 @@
         android:text="Accept"
         android:textSize="20dp"
         android:drawableLeft="@drawable/green_tick"
+        android:onClick="startOrEndTask"
         android:textColor="#FFFFFF"
+        android:id="@+id/acceptTask"
         app:layout_constraintTop_toBottomOf="@id/button_start_guideline"
         app:layout_constraintStart_toEndOf="@id/left_guideline"
         app:layout_constraintEnd_toStartOf="@id/left_button_guideline"/>
@@ -75,9 +78,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Skip"
+        android:onClick="skipTask"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:drawableLeft="@drawable/skip_icon"
         android:textSize="20dp"
+        android:id="@+id/skipTask"
         android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/button_start_guideline"
         app:layout_constraintStart_toEndOf="@id/right_button_guideline"

@@ -23,16 +23,16 @@ public class NotificationSender extends BroadcastReceiver {
         createNotificationChannel();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(hostContext, CHANNEL_ID)
-                .setSmallIcon(R.drawable.notification_icon)
+                .setSmallIcon(R.drawable.buddy_rect)
                 .setContentTitle("How do you feel")
                 .setContentText("Rate here, how do you feel?")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true)
-                .addAction(R.drawable.notification_icon, "Good",
+                .addAction(R.drawable.notification_icon, "Good"+new String(Character.toChars(0x1F600)),
                         create_action("Good",0))
-                .addAction(R.drawable.notification_icon, "OK",
+                .addAction(R.drawable.notification_icon, "Ok"+new String(Character.toChars(0x1F642)),
                         create_action("OK",1))
-                .addAction(R.drawable.notification_icon, "Bad",
+                .addAction(R.drawable.notification_icon, "Bad"+new String(Character.toChars(0x1F615)),
                         create_action("Bad",2));
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(hostContext);

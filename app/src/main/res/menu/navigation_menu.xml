@@ -6,11 +6,11 @@
     <item android:id="@+id/profile"
         android:title="Profile"/>
     <item android:id="@+id/testNotify"
-        android:title="Test Notification"/>
+        android:title="My Tasks"/>
     <item android:id="@+id/gpsmonitor"
-        android:title="GPS/Sensor monitor"/>
+        android:title="Quarantine Bot"/>
     <item android:id="@+id/registration"
-        android:title="Register User"/>
+        android:title="Health Stats"/>
     <item android:id="@+id/opentask"
-        android:title="Show tasks"/>
+        android:title="About"/>
 </menu>

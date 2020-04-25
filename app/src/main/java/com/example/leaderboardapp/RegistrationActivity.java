@@ -3,9 +3,13 @@ package com.example.leaderboardapp;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -21,6 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         tickButton = findViewById(R.id.floating_action_button);
         progressBar = findViewById(R.id.determinateBar);
+        schedule_notification();
         PersonalDetailsFragment firstFragment = new PersonalDetailsFragment();
 
         // In case this activity was started with special instructions from an
@@ -65,5 +70,14 @@ public class RegistrationActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(),LauncherActivity.class);
         startActivity(i);
         this.finish();
+    }
+    private void schedule_notification() {
+        Intent notificationIntent = new Intent( this, NotificationSender. class ) ;
+        notificationIntent.putExtra("Alarmtask",true);
+        PendingIntent pendingIntent = PendingIntent. getBroadcast ( this, 0 , notificationIntent , PendingIntent. FLAG_UPDATE_CURRENT ) ;
+        long futureInMillis = SystemClock. elapsedRealtime () + 1000;
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context. ALARM_SERVICE ) ;
+        assert alarmManager != null;
+        alarmManager.setInexactRepeating(AlarmManager. ELAPSED_REALTIME_WAKEUP , futureInMillis, 2*AlarmManager.INTERVAL_HOUR, pendingIntent); ;
     }
 }
