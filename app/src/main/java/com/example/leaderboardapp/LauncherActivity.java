@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -148,5 +150,16 @@ public class LauncherActivity extends AppCompatActivity  {
     {
         Intent i = new Intent(this,TasksActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout dTemp = (DrawerLayout)findViewById(R.id.drawer_layout);
+        if(dTemp.isDrawerOpen(GravityCompat.START))
+        {
+            dTemp.closeDrawer(GravityCompat.START);
+        }
+        else
+        super.onBackPressed();
     }
 }
