@@ -21,7 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class LauncherActivity extends AppCompatActivity {
+public class LauncherActivity extends AppCompatActivity  {
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;

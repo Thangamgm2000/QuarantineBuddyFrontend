@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class LeaderboardActivity extends AppCompatActivity {
 
-    private String URLstring = "http://9129e336.ngrok.io/leaderboard";
+    private String URLstring;
     private static ProgressDialog mProgressDialog;
     private ListView listView;
     ArrayList<DataModel> dataModelArrayList;
@@ -34,7 +34,7 @@ public class LeaderboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
-
+        URLstring=  getString(R.string.server)+"leaderboard";
         listView = findViewById(R.id.lv);
 
         retrieveJSON();

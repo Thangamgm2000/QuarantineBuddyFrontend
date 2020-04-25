@@ -1,6 +1,7 @@
 package com.example.leaderboardapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,15 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.task_cardview, parent,false);
         context = parent.getContext();
-
+        itemLayoutView.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(context,TasksActivity.class);
+                        context.startActivity(i);
+                    }
+                }
+        );
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
         return viewHolder;
     }
