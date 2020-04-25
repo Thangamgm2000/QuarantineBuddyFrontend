@@ -79,6 +79,8 @@ public class LauncherActivity extends AppCompatActivity {
                         openSensorMonitor();break;
                     case R.id.registration:
                         registerUser();break;
+                    case R.id.opentask:
+                        openTasks();break;
                     default:
                         return true;
                 }
@@ -140,6 +142,11 @@ public class LauncherActivity extends AppCompatActivity {
     public void registerUser()
     {
         Intent i = new Intent(this,RegistrationActivity.class);
+        startActivity(i);
+    }
+    public void openTasks()
+    {
+        Intent i = new Intent(this,TasksActivity.class);
         startActivity(i);
     }
 }

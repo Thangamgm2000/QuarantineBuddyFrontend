@@ -11,5 +11,6 @@
         android:title="GPS/Sensor monitor"/>
     <item android:id="@+id/registration"
         android:title="Register User"/>
-
+    <item android:id="@+id/opentask"
+        android:title="Show tasks"/>
 </menu>

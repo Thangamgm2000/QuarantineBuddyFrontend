@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:id="@+id/imageEndGuideline"
+        app:layout_constraintGuide_percent="0.4"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:id="@+id/imageleftGuideline"
+        app:layout_constraintGuide_percent="0.36"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:id="@+id/imagerightGuideline"
+        app:layout_constraintGuide_percent="0.64"/>
+<ImageView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:id="@+id/task_icon"
+    android:src="@drawable/dalgona_cofee"
+    app:layout_constraintDimensionRatio="H,1:1"
+    app:layout_constraintStart_toStartOf="@id/imageleftGuideline"
+    app:layout_constraintEnd_toEndOf="@id/imagerightGuideline"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/imageEndGuideline"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:numStars="5"
+        android:id="@+id/text_est_time"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/task_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Estimated time:"
+        android:textColor  ="@color/detailsTextColor"
+        app:layout_constraintBottom_toTopOf="@id/estimated_time"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:numStars="5"
+        android:id="@+id/estimated_time"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/task_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="20 mins"
+        android:textStyle="bold"
+        android:textColor="@color/detailsTextColor"
+        app:layout_constraintTop_toTopOf="@id/task_icon"
+        app:layout_constraintBottom_toBottomOf="@id/task_icon"/>
+    <TextView
+    android:layout_width="wrap_content"
+    android:numStars="5"
+    android:id="@+id/text_rating"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toEndOf="@id/task_icon"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:text="Rating:"
+        android:textColor="@color/detailsTextColor"
+    app:layout_constraintBottom_toTopOf="@id/task_rating"/>
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:numStars="5"
+        android:isIndicator="true"
+        android:id="@+id/task_rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/task_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/task_icon"
+        app:layout_constraintBottom_toBottomOf="@id/task_icon"/>
+    <TextView
+        android:id="@+id/taskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        android:textAlignment="center"
+        android:text="Dalgona Cofee Challenge"
+        android:textColor="@color/detailsTextColor"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/task_icon"
+        app:layout_constraintStart_toStartOf="parent"   />
+    <TextView
+        android:id="@+id/taskCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:padding="1dp"
+        android:text="Category: Lifeskills"
+        android:textColor="@color/detailsTextColor"
+        app:layout_constraintTop_toBottomOf="@id/taskName"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/taskIntensity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:padding="1dp"
+        android:text="Intensity: High"
+        android:textColor="@color/detailsTextColor"
+        app:layout_constraintTop_toBottomOf="@+id/taskCategory"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/desc_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        android:text="Task Description"
+        android:textStyle="bold"
+        android:textColor="@color/detailsTextColor"
+        app:layout_constraintTop_toBottomOf="@+id/taskIntensity"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/taskdesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:padding="1dp"
+        android:text="@string/dalgonaDescription"
+        android:textColor="@color/detailsTextColor"
+        app:layout_constraintTop_toBottomOf="@+id/desc_title"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/guide_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        android:text="https://en.wikipedia.org/wiki/Dalgona_coffee"
+        android:autoLink="web"
+        android:textColor="@color/detailsTextColor"
+        app:layout_constraintTop_toBottomOf="@+id/taskdesc"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

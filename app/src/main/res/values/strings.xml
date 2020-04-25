@@ -3,7 +3,6 @@
     <string name="OpenDrawer">Open navigation menu</string>
     <string name="Close">Exit navigation menu</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="alphanumeric">1234567890qwertyuiopasdfghjklzxcvbnm_</string>
+    <string name="dalgonaDescription">Make a dalgona coffee! Dalgona coffee  is a beverage made by whipping equal proportions of instant coffee powder, sugar, and hot water until it becomes creamy and then adding it to cold or hot milk. Occasionally, it is topped with coffee powder, cocoa, crumbled biscuits, or honey.</string>
 </resources>
