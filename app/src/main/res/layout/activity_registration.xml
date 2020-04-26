@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightbuddytheme"
+    android:background="@color/white"
     tools:context=".RegistrationActivity">
     <ProgressBar
         android:layout_marginTop="5dp"
@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="@id/right_guideline"
         app:layout_constraintTop_toBottomOf="@id/determinateBar"
         android:id="@+id/survey_details"
-        android:textColor="@color/detailsTextColor"
+        android:textColor="@color/c1"
         android:textStyle="bold"
         android:text="Answer a few questions before we get into the app"
         />
@@ -45,7 +45,22 @@
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainer"
         android:layout_margin="16dp"
         android:onClick="nextFragment"
+        android:background="@color/c1"
+        android:visibility="invisible"
         app:srcCompat="@drawable/tickicon"/>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:background="@color/c1"
+        android:text="next"
+        android:onClick="nextFragment"
+        android:textColor="@color/lightbuddytheme"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainer" />
+
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,6 +73,8 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.95"
         android:id="@+id/right_guideline"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

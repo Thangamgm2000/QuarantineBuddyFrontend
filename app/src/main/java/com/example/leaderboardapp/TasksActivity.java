@@ -5,14 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -21,6 +26,8 @@ public class TasksActivity extends AppCompatActivity {
     SharedPreferences sf,sfcurrenttask;
     SharedPreferences.Editor sfeditor;
     Button acceptButton;
+    ImageView taskIcon;
+    TextView nameText,catText,decText;
     long minTime,restTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,11 @@ public class TasksActivity extends AppCompatActivity {
         minTime= 60 * 1000;
         restTime = 30*1000;
         acceptButton = findViewById(R.id.acceptTask);
+        taskIcon = findViewById(R.id.task_icon);
+        nameText = findViewById(R.id.taskName);
+        catText = findViewById(R.id.taskCategory);
+        decText = findViewById(R.id.taskdesc);
+        setcontents();
         sf = getSharedPreferences("taskStatus",MODE_PRIVATE);
         sfcurrenttask = getSharedPreferences("currenttask",MODE_PRIVATE);
         String actStatus = sf.getString("taskStatus","completed");
@@ -43,6 +55,8 @@ public class TasksActivity extends AppCompatActivity {
                 acceptButton.setText("Complete");
             }
     }
+
+
 
     public void startOrEndTask(View view) {
         String actStatus = sf.getString("taskStatus","completed");
@@ -75,7 +89,7 @@ public class TasksActivity extends AppCompatActivity {
             {
                 AlertDialog.Builder alertdialog = new AlertDialog.Builder(this)
                         .setTitle("Task completion")
-                        .setMessage("Minimum estimated time of 20 mins is needed for this task. Remaining time is 10 mins. Complete the task and come back later" +
+                        .setMessage("Minimum estimated time of 10 mins is needed for this task. Remaining time is 5 mins. Complete the task and come back later" +
                                 " or skip this task if you are not interested in this")
 
         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -118,5 +132,14 @@ public class TasksActivity extends AppCompatActivity {
 
     public void skipTask(View view) {
         closeActivity();
+    }
+    private void setcontents() {
+        SharedPreferences sf1 = getSharedPreferences("taskCommunicator",MODE_PRIVATE);
+        nameText.setText(sf1.getString("taskName","NA"));
+        catText.setText(sf1.getString("taskCat","NA"));
+        decText.setText(sf1.getString("taskDesc","NA"));
+        byte[] decodedString = Base64.decode(sf1.getString("imgUrl",",.").split(",",2)[1], Base64.DEFAULT);
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        taskIcon.setImageBitmap(decodedByte);
     }
 }

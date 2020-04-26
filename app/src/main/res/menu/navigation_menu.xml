@@ -13,7 +13,7 @@
         android:title="Quarantine Bot"/>
     <item android:id="@+id/health_task"
         android:title="Health Stats"/>
-    <item android:id="@+id/opentask"
+    <item android:id="@+id/about_menu"
         android:icon="@drawable/info_icon"
         android:title="About"/>
 </menu>

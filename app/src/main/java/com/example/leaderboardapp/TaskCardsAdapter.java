@@ -2,6 +2,11 @@ package com.example.leaderboardapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.ViewHolder> {
     ArrayList<ChallengeTask> taskList;
@@ -30,6 +37,15 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        SharedPreferences sf = context.getSharedPreferences("taskCommunicator",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sf.edit();
+                        ChallengeTask current = taskList.get(0);
+                        editor.putString("taskName",current.taskName);
+                        editor.putString("taskDesc",current.taskDescription);
+                        editor.putString("taskCat",current.taskCategory);
+                        editor.putString("imgUrl",current.imageUrl);
+                        editor.putString("rating",current.taskIntensity);
+                        editor.apply();
                         Intent i = new Intent(context,TasksActivity.class);
                         context.startActivity(i);
                     }
@@ -43,15 +59,10 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ChallengeTask currentTask = taskList.get(position);
         holder.nameText.setText(currentTask.taskName);
-        if(!currentTask.taskCategory.equals(""))
-        holder.catText.setText("Category: "+currentTask.taskCategory);
-        else
-            holder.catText.setText("");
-        if(!currentTask.taskIntensity.equals(""))
-        holder.intenText.setText("Intensity: "+currentTask.taskIntensity);
-        else
-            holder.intenText.setText("");
-        holder.taskIcon.setImageResource(currentTask.imageId);
+
+        byte[] decodedString = Base64.decode(currentTask.imageUrl.split(",",2)[1], Base64.DEFAULT);
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        holder.taskIcon.setImageBitmap(decodedByte);
     }
 
     @Override
@@ -67,8 +78,6 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             nameText = (TextView) itemLayoutView.findViewById(R.id.taskName);
-            catText = (TextView) itemLayoutView.findViewById(R.id.taskCategory);
-            intenText = (TextView) itemLayoutView.findViewById(R.id.taskIntensity);
             taskIcon = (ImageView) itemLayoutView.findViewById(R.id.taskImage);
         }
     }

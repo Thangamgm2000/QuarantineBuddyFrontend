@@ -4,15 +4,20 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="pureblack">#000000</color>
-    <color name="detailsTextColor">#CC3674</color>
-    <color name="darkbackground">#d1759b</color>
-    <color name="lightbuddytheme">#70ebff</color>
+    <color name="detailsTextColor">#009688</color>
+    <color name="darkbackground">#35a79c</color>
+    <color name="lightbuddytheme">#FFFFFF</color>
     <color name="detailsTextColorBlack">#1f262a</color>
     <color name="gray">#EEEEEE</color>
     <color name="gray_darken">#DDDDDD</color>
     <color name="colorGray">#4A4A4A</color>
     <color name="teal">#808080</color>
-
+    <color name="c1">#009688</color>
+    <color name="c2">#35a79c</color>
+    <color name="c3">#54b2a9</color>
+    <color name="c4">#65c3ba</color>
+    <color name="c5">#83d0c9</color>
+    <color name="c6">#E0FFFF</color>
     <color name="white">#FFFFFF</color>
 
     <color name="wh">  #D3D3D3</color>

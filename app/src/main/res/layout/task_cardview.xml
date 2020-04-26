@@ -32,29 +32,9 @@
         android:textSize="18sp"
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintStart_toEndOf="@+id/taskImage"   />
-        <TextView
-        android:id="@+id/taskCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:padding="1dp"
-        android:text="Category: Lifeskills"
-        android:textColor="@color/detailsTextColor"
-            app:layout_constraintTop_toBottomOf="@id/taskName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/taskImage" />
-        <TextView
-        android:id="@+id/taskIntensity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:padding="1dp"
-        android:text="Intensity: High"
-        android:textColor="@color/detailsTextColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/taskCategory"
-            app:layout_constraintStart_toEndOf="@+id/taskImage" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

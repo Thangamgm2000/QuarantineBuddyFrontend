@@ -7,6 +7,8 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -19,12 +21,14 @@ public class RegistrationActivity extends AppCompatActivity {
     FloatingActionButton tickButton;
     String currentFrag="personal";
     ProgressBar progressBar;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         tickButton = findViewById(R.id.floating_action_button);
         progressBar = findViewById(R.id.determinateBar);
+        progressBar.setProgressBackgroundTintList(ColorStateList.valueOf(getColor(R.color.c5)));
         schedule_notification();
         PersonalDetailsFragment firstFragment = new PersonalDetailsFragment();
 
