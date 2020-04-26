@@ -4,13 +4,16 @@
         android:icon="@drawable/healthstats"
         android:title="Leaderboard"/>
     <item android:id="@+id/profile"
+        android:icon="@drawable/profilemenu_icon"
         android:title="Profile"/>
     <item android:id="@+id/testNotify"
         android:title="My Tasks"/>
-    <item android:id="@+id/gpsmonitor"
+    <item android:id="@+id/quarantine_bot"
+        android:icon="@drawable/bot"
         android:title="Quarantine Bot"/>
-    <item android:id="@+id/registration"
+    <item android:id="@+id/health_task"
         android:title="Health Stats"/>
     <item android:id="@+id/opentask"
+        android:icon="@drawable/info_icon"
         android:title="About"/>
 </menu>

@@ -1,6 +1,9 @@
 package com.example.leaderboardapp;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,11 +70,20 @@ public class ListAdapter extends BaseAdapter {
             // the getTag returns the viewHolder object set as a tag to the view
             holder = (ViewHolder)convertView.getTag();
         }
+        if(dataModelArrayList.get(position).getImgURL().length()==0)
+        {
+            Picasso.get().load("https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png").into(holder.iv);
+        }
+        else
+        {
+            byte[] decodedString = Base64.decode(dataModelArrayList.get(position).getImgURL().split(",",2)[1], Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            holder.iv.setImageBitmap(decodedByte);
+        }
 
-        Picasso.get().load(dataModelArrayList.get(position).getImgURL()).into(holder.iv);
         holder.tvname.setText("UserName: "+dataModelArrayList.get(position).getName());
         holder.tvcountry.setText("Score: "+dataModelArrayList.get(position).getScore());
-        holder.tvcity.setText("City: "+dataModelArrayList.get(position).getCity());
+        holder.tvcity.setText(""+dataModelArrayList.get(position).getCity());
 
         return convertView;
     }

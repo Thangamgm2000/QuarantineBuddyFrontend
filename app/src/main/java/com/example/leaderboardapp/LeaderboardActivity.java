@@ -55,24 +55,21 @@ public class LeaderboardActivity extends AppCompatActivity {
                         try {
 
                             JSONObject obj = new JSONObject(response);
-                            if(obj.optString("status").equals("true")){
+                            dataModelArrayList = new ArrayList<>();
+                            JSONArray dataArray  = obj.getJSONArray("leaderboard");
 
-                                dataModelArrayList = new ArrayList<>();
-                                JSONArray dataArray  = obj.getJSONArray("data");
+                            for (int i = 0; i < dataArray.length(); i++) {
 
-                                for (int i = 0; i < dataArray.length(); i++) {
+                                DataModel playerModel = new DataModel();
+                                JSONObject dataobj = dataArray.getJSONObject(i);
 
-                                    DataModel playerModel = new DataModel();
-                                    JSONObject dataobj = dataArray.getJSONObject(i);
+                                playerModel.setName(dataobj.getString("Username"));
+                                playerModel.setScore(dataobj.getString("Score"));
+                                playerModel.setImgURL(dataobj.getString("IconUrl"));
+                                playerModel.setCity("");
+                                dataModelArrayList.add(playerModel);
 
-                                    playerModel.setName(dataobj.getString("name"));
-                                    playerModel.setScore(dataobj.getString("score"));
-                                    playerModel.setCity(dataobj.getString("city"));
-                                    playerModel.setImgURL(dataobj.getString("imgURL"));
 
-                                    dataModelArrayList.add(playerModel);
-
-                                }
 
                                 setupListview();
 

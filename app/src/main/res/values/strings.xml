@@ -2,7 +2,7 @@
     <string name="app_name">QuarantineBuddy</string>
     <string name="OpenDrawer">Open navigation menu</string>
     <string name="Close">Exit navigation menu</string>
-    <string name="server">http://7d19db29.ngrok.io/</string>
+    <string name="server">http://2fd5d7ee.ngrok.io/</string>
     <string name="alphanumeric">1234567890qwertyuiopasdfghjklzxcvbnm_</string>
     <string name="dalgonaDescription">Make a dalgona coffee! Dalgona coffee  is a beverage made by whipping equal proportions of instant coffee powder, sugar, and hot water until it becomes creamy and then adding it to cold or hot milk. Occasionally, it is topped with coffee powder, cocoa, crumbled biscuits, or honey.</string>
 </resources>

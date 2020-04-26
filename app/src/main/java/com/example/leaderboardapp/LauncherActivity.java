@@ -80,10 +80,10 @@ public class LauncherActivity extends AppCompatActivity  {
                         openProfile();break;
                     case R.id.testNotify:
                         sendnotifications();break;
-                    case R.id.gpsmonitor:
+                    case R.id.health_task:
                         openSensorMonitor();break;
-                    case R.id.registration:
-                        registerUser();break;
+                    case R.id.quarantine_bot:
+                        openchatBot();break;
                     case R.id.opentask:
                         openTasks();break;
                     default:
@@ -144,9 +144,9 @@ public class LauncherActivity extends AppCompatActivity  {
         Intent i = new Intent(this,Notification_Activity.class);
         startActivity(i);
     }
-    public void registerUser()
+    public void openchatBot()
     {
-        Intent i = new Intent(this,RegistrationActivity.class);
+        Intent i = new Intent(this,ChatbotActivity.class);
         startActivity(i);
     }
     public void openTasks()
